@@ -1,11 +1,21 @@
-@import "./colours";
 @import "./fonts";
+@import "./colours";
 @import "./button";
 @import "./head-card";
+@import "./auth-form-modal";
 
 body {
   background: lighten($color: $background-color, $amount: 20);
   font-family: $primary-font;
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: $darker-secondary-color;
+  &:hover {
+    color: $secondary-color;
+    cursor: pointer;
+    transition: 300ms all ease-in-out;
+  }
 }

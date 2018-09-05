@@ -19,8 +19,6 @@
     "it": true
   },
   "rules": {
-    "import/no-unresolved": [2, { "commonjs": true }],
-    "import/extensions": ["error", "as-needed"],
     "react/jsx-no-bind": [
       "error",
       {
@@ -29,27 +27,36 @@
         "ignoreRefs": true
       }
     ],
+    "react/no-unused-state": 0,
+    "valid-jsdoc": ["error", {
+      "requireReturn": true,
+      "requireReturnType": true,
+      "requireParamDescription": false,
+      "requireReturnDescription": true
+    }],
+    "require-jsdoc": ["error", {
+        "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true
+        }
+    }],
     "react/no-did-update-set-state": "error",
     "react/no-unknown-property": "error",
     "react/no-unused-prop-types": "error",
     "react/prop-types": "error",
     "react/react-in-jsx-scope": "error",
     "jsx-a11y/label-has-for": 0,
+    "import/no-unresolved": [2, { "commonjs": true }],
+    "import/extensions": ["error", "as-needed"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": false
-      }
-    ],
-
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "jsx-a11y/anchor-is-valid": [
-      "error",
+      "2",
       {
         "components": ["Link"],
-        "specialLink": ["to"]
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
       }
     ]
   }
