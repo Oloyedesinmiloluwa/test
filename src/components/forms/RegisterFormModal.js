@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import {
   Button,
   Dimmer,
@@ -11,6 +12,7 @@ import {
 } from 'semantic-ui-react';
 import ModalFormHOC, { modalOptions } from '../hoc/ModalFormHOC';
 import LoginFields from './FormFieldComponents';
+import userSignupAction from '../../redux/actions/signupAction';
 
 export const RegisterForm = ({
   state, show, close, onSubmit, onChange,
@@ -100,4 +102,4 @@ RegisterForm.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default ModalFormHOC(RegisterForm);
+export default connect(null, { userSignup: userSignupAction })(ModalFormHOC(RegisterForm));

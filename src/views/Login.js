@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import LoginModal from '../components/forms/LoginFormModal';
 import RegisterModal from '../components/forms/RegisterFormModal';
+import userSignupAction from '../redux/actions/signupAction';
+
 
 /**
  * Represents the Login Component.
@@ -26,14 +29,15 @@ class Login extends Component {
  * @returns {Object} returns the jsx
  * */
   render() {
+    const { userSignup, history } = this.props;
     return (
       <div>
         <h1>FARGO REACT APP - TEST LOGIN VIEW</h1>
         <LoginModal handleSubmit={this.loginSubmit} />
-        <RegisterModal handleSubmit={this.registerSubmit} />
+        <RegisterModal submit={this.registerSubmit} history={history} userSignup={userSignup} />
       </div>
     );
   }
 }
 
-export default Login;
+export default connect(null, { userSignup: userSignupAction })(Login);
